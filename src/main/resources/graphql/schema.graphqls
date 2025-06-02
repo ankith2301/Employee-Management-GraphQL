@@ -1,0 +1,24 @@
+type Employer {
+  id: ID!
+  name: String
+  age: Int
+  gmail: String
+  services: [Service]
+  createdOn: String
+  updatedOn: String
+}
+
+type Service {
+  id: ID!
+  name: String
+  employers: [Employer]
+  createdOn: String
+  updatedOn: String
+}
+
+type Query {
+  getAllEmployers: [Employer]
+  getAllServices: [Service]
+  getEmployerById(id: ID!): Employer
+  getServiceById(id: ID!): Service
+}
