@@ -25,13 +25,13 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PostMapping("/create/{employerID}")
+    @PostMapping("/create/{employerID}/{serviceID}")
     public ResponseEntity<String> createEmployee(@RequestBody EmployeeDTO employeeDTO, @PathVariable("employerID") Long employerID, @PathVariable("serviceID") Long serviceID) {
         return new ResponseEntity<String>(employeeService.createEmployee(employeeDTO, employerID, serviceID), HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all")
-    public ResponseEntity<List<EmployeeDTO>> getAllEmployees(EmployeeDTO employeeDTO) {
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
         return new ResponseEntity<List<EmployeeDTO>>(employeeService.getAllEmployees(), HttpStatus.CREATED);
     }
 }
